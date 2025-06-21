@@ -10,8 +10,9 @@ const transactionType = z.object({
     title: z.string().trim().min(3),
     price: z.coerce.number(), // this will first try to convert the given thing into number if not possible than throw error
     description: z.string().trim().min(3),
-    createAt: z.string().datetime(), // this will accept only UTC time if you want to verify local time include local: true
-    updatedAt: z.string().datetime(),
+    // these will be added by mongoose 
+    // createAt: z.string().datetime(), // this will accept only UTC time if you want to verify local time include local: true
+    //updatedAt: z.string().datetime(),
 });
 
 module.exports = {

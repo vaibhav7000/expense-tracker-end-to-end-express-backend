@@ -46,10 +46,7 @@ async function checkUserExistInDB(req, res, next) {
 
 
 
-function verifyJWT() {
-
-}
 
 module.exports = {
-    verifyUserType, verifyJWT, checkUserExistInDB
+    verifyUserType, checkUserExistInDB
 }

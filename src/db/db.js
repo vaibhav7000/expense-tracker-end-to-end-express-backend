@@ -22,7 +22,14 @@ const transactionSchema = new mongoose.Schema({
     title: String,
     description: String,
     description: String,
-    price: Number
+    price: Number,
+
+    // establishing relationship between the user and expense-transaction
+    owner: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 }, {
     timestamps: true
 })

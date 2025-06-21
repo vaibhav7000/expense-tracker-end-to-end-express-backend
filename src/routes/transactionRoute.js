@@ -1,0 +1,12 @@
+const { Router } = require("express");
+const router = Router();
+const { verifyJWT, verifyTransactionType } = require("../middlewares/transaction.js");
+const { addTransactionInDatabase } = require("../controllers/transactionController.js")
+ 
+// all these transaction routes should be expose if the user has valid jwt since all the routes require these we will use the middle-ware at the top 
+
+router.use(verifyJWT);
+
+router.post("/newTransaction",verifyTransactionType, addTransactionInDatabase);
+
+module.exports = router;

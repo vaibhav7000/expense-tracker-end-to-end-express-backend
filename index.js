@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const { connection } = require("./src/db/db.js");
 const userRouter = require("./src/routes/userRoutes.js");
+const transactionRouter = require("./src/routes/transactionRoute.js")
 const databaseName = "expense_tracker"
 const dbURL = `mongodb+srv://vc160222:vc160222@cluster0.xl0f3om.mongodb.net/${databaseName}`;
 const port = 3000;
@@ -25,6 +26,8 @@ async function main() {
 main();
 
 app.use("/user", userRouter);
+
+app.use("/transactions", transactionRouter);
 
 
 // global-catches -> middleware to handle global errors that comes in the routes
