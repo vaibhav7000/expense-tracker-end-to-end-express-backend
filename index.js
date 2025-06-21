@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const { connection } = require("./src/db/db.js");
 const userRouter = require("./src/routes/userRoutes.js");
@@ -6,6 +7,11 @@ const transactionRouter = require("./src/routes/transactionRoute.js")
 const databaseName = "expense_tracker"
 const dbURL = `mongodb+srv://vc160222:vc160222@cluster0.xl0f3om.mongodb.net/${databaseName}`;
 const port = 3000;
+
+// sending good things that browser likes so that it does not block the request
+app.use(cors({
+    origin: "*"
+}))
 
 // all our routes will send json-data inside the body;
 app.use(express.json());
