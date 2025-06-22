@@ -11,7 +11,8 @@ router.post("/signin", verifyUserType, checkUserExistInDB, provideJWT);
 
 router.post("/verify", verifyJWT, function(req, res, next) {
     res.status(200).json({
-        msg: "verification successfull"
+        msg: "verification successfull",
+        token: req.token
     })
 });
 

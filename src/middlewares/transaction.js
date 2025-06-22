@@ -7,6 +7,7 @@ function verifyJWT(req, res, next) {
     try {
         const response = jwt.verify(token, jwtPassword); // if the token is not correct => the internal library will throw error
         req.username= response.username;
+        req.token = token;
         next();
     } catch(error) {
         res.status(403).json({
